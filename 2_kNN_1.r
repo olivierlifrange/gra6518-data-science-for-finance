@@ -29,7 +29,7 @@ set.seed(123)               #  comment this line out to get different draws for 
 #k       = ceiling(0.1*n)    #   k in kNN. ceiling (0.1*n) is 10% of all data
 k       = 50    #   k in kNN. 
 
-dist    = 2                #   1 Manhattan (absolute values), 2 for Euclidean distance (default)
+dist    = 1                #   1 Manhattan (absolute values), 2 for Euclidean distance (default)
 
 # End of user's options 
 

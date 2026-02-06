@@ -12,15 +12,15 @@
 # 
 
 
-setwd('C:/Users/a1810185/Documents/Course Data Science/R code')    # your own path to where the kNNfunctions.r file is
-source('kNNfunctions.r')   
+# setwd('C:/Users/a1810185/Documents/Course Data Science/R code')    # your own path to where the kNNfunctions.r file is
+source('2_kNNfunctions.r')   
 
 
 # User's options 
 
 # Options to generate simulated data
 n       = 10000               #  number of observations in the sample
-p       = 1                  #  number of features (covariates). Only the first is relevant for the DGP. p > 1 will decrease the performance of kNN
+p       = 2                  #  number of features (covariates). Only the first is relevant for the DGP. p > 1 will decrease the performance of kNN
 
 s       = 0.2                #  error standard deviation in DGP: y = f(x) + s*u, where u is N(0,1)
 which_f = 4                  #  which function to simulate: 1 for linear, 2 for quadratic, 3 for logistic, 4 for cosine
