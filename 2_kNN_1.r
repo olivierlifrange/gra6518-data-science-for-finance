@@ -6,8 +6,8 @@
 #
 
 
-setwd('C:/Users/a1810185/Documents/Course Data Science/R code')    # your own path to where the kNNfunctions.r file is
-source('kNNfunctions.r')   
+# setwd('C:/Users/a1810185/Documents/Course Data Science/R code')    # your own path to where the kNNfunctions.r file is
+source('2_kNNfunctions.r')
 
 # User's options 
 
