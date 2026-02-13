@@ -19,18 +19,18 @@ source('2_kNNfunctions.r')
 # User's options 
 
 # Options to generate simulated data
-n       = 10000               #  number of observations in the sample
-p       = 2                  #  number of features (covariates). Only the first is relevant for the DGP. p > 1 will decrease the performance of kNN
+n       = 10000              #  number of observations in the sample
+p       = 2                 #  number of features (covariates). Only the first is relevant for the DGP. p > 1 will decrease the performance of kNN
 
 s       = 0.2                #  error standard deviation in DGP: y = f(x) + s*u, where u is N(0,1)
-which_f = 4                  #  which function to simulate: 1 for linear, 2 for quadratic, 3 for logistic, 4 for cosine
-bet     = 4                  #  coefficient (e.g. slope for linear). The higher, the more nonlinearity.
+which_f = 3                  #  which function to simulate: 1 for linear, 2 for quadratic, 3 for logistic, 4 for cosine
+bet     = 4                #  coefficient (e.g. slope for linear). The higher, the more nonlinearity.
 set.seed(1234)               #  comment this line out to get different draws for the same values of the other parameters
 
 # Options for the kNN algorithm
 
 #k       = ceiling(0.1*n)    #   k in kNN. ceiling (0.1*n) is 10% of all data
-k       = 50    #   k in kNN. ceiling (0.1*n) is 10% of all data
+k       = 30    #   k in kNN. ceiling (0.1*n) is 10% of all data
 
 dist    =  2                #   1 Manhattan (absolute values), 2 for Euclidean distance (default)
 
@@ -82,3 +82,4 @@ plotData = function(){
 
 plotData()
 
+print("Hello world")

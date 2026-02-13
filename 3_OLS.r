@@ -13,7 +13,7 @@
 #setwd('C:/Users/a1810185/Documents/A_DataScience/R code')            # if needed, set directory for output     
 
 # date, countrynumber,excessret,logCAPE,momentum,vol3m,vol12m
-dataGE = read.csv("C:/Users/a1810185/Documents/A_Data Science/Data/GlobalEquityReturns.csv", header = TRUE, sep = ",")
+dataGE = read.csv("./data/GlobalEquityReturns.csv", header = TRUE, sep = ",")
 
 # let's take a look at the data. This shows a problem with vol12m that does not show when visually inspecting the csv file. 
 print(summary(dataGE))
@@ -34,8 +34,10 @@ lm.fit = lm(excessret~logCAPE+momentum+avgvol+vol3m)
 print(summary(lm.fit))           # display summary of fit.
 b     = coef(lm.fit)             # extract coefficients. We could also use lm.fit$coefficients
 
-# let's repeat, this time without avgvol
+# let's repeat, this time without avgvol since it doesn't seem to matter
 lm.fit2 = lm(excessret~logCAPE+momentum+vol3m)
 print(summary(lm.fit2))           # display summary of fit.
+
+# watch out, the t-stat are overstatted because R fails to recognize data is substantially corrolated. (CAN stock market move with US stock market)
 
 
