@@ -28,14 +28,15 @@ colnames(dataGE) = c('date','countrynumber','excessret','logCAPE','momentum','av
 
 # ... and here we attach it
 attach(dataGE, warn.conflicts = F)             # The database 'data' (dataframe or list) is attached to the R search path. Now we can use the variable names.
-lm.fit = lm(excessret~logCAPE+momentum+avgvol+vol3m)
+lm.fit = lm(excessret~logCAPE+momentum+avgvol+vol12m)
 
 # let's look at the results. avgvol and vol3m have opposite signs, with the second larger.
 print(summary(lm.fit))           # display summary of fit.
 b     = coef(lm.fit)             # extract coefficients. We could also use lm.fit$coefficients
 
 # let's repeat, this time without avgvol since it doesn't seem to matter
-lm.fit2 = lm(excessret~logCAPE+momentum+vol3m)
+voldiff = vol3m - vol12m
+lm.fit2 = lm(excessret~logCAPE+momentum+vol3m + voldiff)
 print(summary(lm.fit2))           # display summary of fit.
 
 # watch out, the t-stat are overstatted because R fails to recognize data is substantially corrolated. (CAN stock market move with US stock market)

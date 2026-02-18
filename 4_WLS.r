@@ -7,7 +7,8 @@
 # Paolo Giordani, September 2020.  
 
 
-dataGE = read.csv("C:/Users/a1810185/Documents/A_Data Science/Data/GlobalEquityReturns.csv", header = TRUE, sep = ",")
+
+dataGE = read.csv("./data/GlobalEquityReturns.csv", header = TRUE, sep = ",")
 colnames(dataGE) = c('date','countrynumber','excessret','logCAPE','momentum','avgvol','vol3m','vol12m')
 
 # OLS with 3 predictors
