@@ -8,7 +8,7 @@
 # Paolo Giordani, September 2000
 
 
-source('LocalReg_functions.r')   
+source('4_LocalReg_functions.r')   
 
 # User's options 
 
@@ -16,10 +16,10 @@ set.seed(123)               #  comment this line out to get different draws for 
 
 # Options for simpulated data
 
-xf1      = 1.0               # forecast origin for the first feature (if p > 1 below, other features are set at zero) 
+xf1      = 2.0               # forecast origin for the first feature (if p > 1 below, other features are set at zero) 
 
-n       = 500               #  number of observations in each sample
-p       = 1                  #  number of features (covariates). Only the first is relevant for the DGP
+n       = 1000               #  number of observations in each sample
+p       = 10                  #  number of features (covariates). Only the first is relevant for the DGP
 
 s       = 2.5                #  error standard deviation in DGP: y = f(x) + s*u, where u is N(0,1)
 which_f = 2                  #  which function to simulate: 1 for linear, 2 for quadratic, 3 for logistic, 4 for cosine
@@ -29,7 +29,7 @@ set.seed(123)               #  comment this line out to get different draws for 
 
 # Options for the kNN algorithm
 
-K       = 100               #   number of neighbours
+K       = 200               #   number of neighbours
 pd      =  1                #   the first pd features are used in computing the distance. All are used for the linear regression.
 
 Dist    =  2                #   1 Manhattan (absolute values), 2 for Euclidean distance (default)
@@ -47,7 +47,9 @@ xk     = xreg[,1:pd]                 # distance is computed on first pd features
 
 # create xf and fit local regression 
 
-if (p==1){xregf = xf1} else {xregf     = c(xf1,matrix(0,p-1) ) }
+if (p==1){xregf = xf1} 
+
+else {xregf     = c(xf1,matrix(0,p-1) ) }
 xkf       = xregf[1:pd]    # only the first pdf features are used in computing the distance
 
 lrObject = locregPG(Dist,K,y,xk,xreg,xkf,xregf) 
@@ -91,7 +93,10 @@ EyPlot = matrix(0,nplot)              # matrix to store the local regression est
 # loop over nplot points to plot and fit kNN on the sample (y,x), which does not change, for varying forecast origin xf 
 for(i in 1:nplot){
   
-  if (p==1){xregf = xPlot[i]} else{xregf     = c(xPlot[i],matrix(0,p-1) ) } # forecast origin xf. We want an estimate of E(y|xf)
+  if (p==1){xregf = xPlot[i]} 
+  
+  else{xregf     = c(xPlot[i],matrix(0,p-1) ) } # forecast origin xf. We want an estimate of E(y|xf)
+  
   xkf = xregf[1:pd]
     
   lr = locregPG(Dist,K,y,xk,xreg,xkf,xregf) 

@@ -20,7 +20,7 @@ sharev   = 0.2     # share of the data for the validation sample, e.g. 0.2 or 0.
 
 #  end user's inputs 
 
-dataGE = read.csv("C:/Users/a1810185/Documents/A_Data Science/Data/GlobalEquityReturns.csv", header = TRUE, sep = ",")
+dataGE = read.csv("./data/GlobalEquityReturns.csv", header = TRUE, sep = ",")
 colnames(dataGE) = c('date','countrynumber','excessret','logCAPE','momentum','avgvol','vol3m','vol12m')
 
 attach(dataGE, warn.conflicts = F)             # The database 'data' (dataframe or list) is attached to the R search path. Now we can use the variable names.

@@ -62,7 +62,7 @@ locregPG = function(Dist,K,y,xk,xreg,xkf,xregf)
   
 
   eyf    =  b[1] + sum( b[2:NROW(b)]*xregf )
-  
+  # yhat = b_OLS*x(i)
 
 
   # build a list for the otput  

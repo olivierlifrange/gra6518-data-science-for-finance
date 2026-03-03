@@ -9,10 +9,10 @@
 
 set.seed(123)
 
-n      = 1000                     # 
+n      = 1000                    # 
 s      = 1.0                     # std of errors
 
-a      = 0.2                            # a should be non-zero
+a      = 0.2                          # a should be non-zero
 b      = c(3.0,2.0,1.0,a,a,a,a,a,a,a)   # all ten features are relevant, but some are large, some are small. 
 
 
@@ -58,7 +58,12 @@ print(" signal-to-noise: true var(E(y|x))/var(y) ")
 print(var(Eyx)/( var( Eyx  ) + s^2))
 print(" Ratio of RMSE of true model over simpler model ")
 print(RMSE_10/RMSE_3)
+print(RMSE_10)
+print(RMSE_3)
 
 
-
-  
+# the smaller the sample and the less information you have the more we will favor
+# the simpler model. 
+# sigma has an impact on the signal to noise ratio AND the ratio of RMSE,
+# Indeed, lower std error means less variance on the prediction and therefore The complex model stops "overfitting noise"
+# but the simple model still has structural bias

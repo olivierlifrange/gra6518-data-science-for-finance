@@ -17,7 +17,7 @@ s     = 0.3     # span. k = s*n, k being the number of neighbours
 # end user's define inputs 
 
 
-source('LocalReg_functions.r')   
+source('4_LocalReg_functions.r')   
 
 
 
