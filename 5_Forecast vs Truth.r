@@ -10,7 +10,7 @@
 set.seed(123)
 
 n      = 1000                    # 
-s      = 1.0                     # std of errors
+s      = 8.0                     # std of errors
 
 a      = 0.2                          # a should be non-zero
 b      = c(3.0,2.0,1.0,a,a,a,a,a,a,a)   # all ten features are relevant, but some are large, some are small. 
